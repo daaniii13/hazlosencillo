@@ -1,0 +1,199 @@
+/* Reset y base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #0288d1);
+  color: #004d40;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background: #00796b;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-weight: 600;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00bcd4;
+}
+
+/* Contenedor principal */
+.container {
+  flex: 1;
+  display: flex;
+  padding: 1rem 2rem;
+  gap: 2rem;
+  background: #b2ebf2;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background: #004d40;
+  color: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 1rem;
+}
+
+.sidebar a {
+  color: #80deea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: #00bcd4;
+}
+
+/* Main y carrusel */
+main {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 280px;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  list-style: none;
+  gap: 1rem;
+}
+
+/* Tarjetas artículo */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  flex: 0 0 300px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card img {
+  border-radius: 6px;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #00796b;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #333;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.card a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #00bcd4;
+  align-self: flex-start;
+  transition: color 0.3s;
+}
+
+.card a:hover {
+  color: #00796b;
+}
+
+/* Botones carrusel */
+.carousel-btn {
+  background: #00796b;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+  background: #004d40;
+}
+
+.prev {
+  margin-right: 10px;
+}
+
+.next {
+  margin-left: 10px;
+}
+
+/* Footer */
+footer {
+  background: #00796b;
+  color: white;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+}
