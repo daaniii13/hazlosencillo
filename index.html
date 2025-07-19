@@ -3,64 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hazlo Sencillo - En Construcción</title>
+  <title>Hazlo Sencillo</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Fredoka', sans-serif;
-      background: linear-gradient(135deg, #fef6f9, #e3f2fd);
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      color: #3f3d56;
-    }
-    h1 {
-      font-weight: 600;
-      font-size: 2.5rem;
-      margin-bottom: 0.5em;
-    }
-    p {
-      font-weight: 400;
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 2em;
-    }
-    .anime {
-      width: 250px;
-      max-width: 90vw;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-    
-    .footer {
-      position: fixed;
-      bottom: 10px;
-      font-size: 0.9rem;
-      color: #999;
-      width: 100%;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <h1>Hazlo Sencillo</h1>
-  <p>Estamos construyendo algo genial para ti... 🧱✨</p>
+  <header class="topbar">
+    <div class="logo">Hazlo Sencillo</div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Categorías</a>
+      <a href="#">Sobre mí</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
 
-  <img class="anime" src="tonikaku-kawaii-tsukasa-dancing.gif" alt="Animación construcción de Tsukasa Yuzaki" />
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Categorías</h3>
+      <ul>
+        <li><a href="#">Software</a></li>
+        <li><a href="#">Hardware</a></li>
+        <li><a href="#">Móviles</a></li>
+        <li><a href="#">Videojuegos</a></li>
+      </ul>
+    </aside>
 
-  <p class="footer">© 2025 Hazlo Sencillo</p>
+    <main class="content">
+      <section class="carousel">
+        <h2>Artículos destacados</h2>
+        <div class="carousel-items">
+          <!-- Aquí irían tarjetas animadas con JS -->
+          <article class="card">Artículo 1</article>
+          <article class="card">Artículo 2</article>
+          <article class="card">Artículo 3</article>
+        </div>
+      </section>
+
+      <section class="articles">
+        <h2>Últimos artículos</h2>
+        <article class="post">
+          <h3>¿Qué es un SSD y por qué es mejor que un HDD?</h3>
+          <p>Descubre las ventajas de los discos de estado sólido frente a los tradicionales.</p>
+          <a href="articulo-ssd.html">Leer más →</a>
+        </article>
+        <!-- Más artículos... -->
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Hazlo Sencillo • Síguenos en redes</p>
+  </footer>
 </body>
 </html>
