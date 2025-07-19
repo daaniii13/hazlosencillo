@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazlo Sencillo - En Construcción</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fef6f9, #e3f2fd);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #3f3d56;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .anime {
+      width: 250px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hazlo Sencillo</h1>
+  <p>Estamos construyendo algo genial para ti... 🧱✨</p>
+  <img class="anime" src="https://media.giphy.com/media/1xkI6oOb7qIPzPqjga/giphy.gif" alt="Anime construcción lindo">
+  <p class="footer">© 2025 Hazlo Sencillo</p>
+</body>
+</html>
