@@ -16,31 +16,37 @@ body {
   flex-direction: column;
 }
 
-/* Barra de progreso fija vertical izquierda */
+/* Barra de progreso fija a la izquierda */
 #progress-bar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 4px;
+  width: 5px;
   height: 100vh;
-  background: #00bcd4; /* cyan */
+  background: #00bcd4;
   z-index: 10000;
-  transition: height 0.2s ease-out;
+  transition: width 0.2s ease-out;
 }
 
-/* Header */
+/* Header fijo arriba, al lado derecho de barra progreso */
 header {
+  position: fixed;
+  top: 0;
+  left: 5px; /* al lado barra progreso */
+  right: 0;
+  height: 60px;
   background: #00796b;
   color: white;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-shrink: 0;
+  z-index: 1000;
 }
 
 header h1 {
   font-weight: 600;
+  font-size: 1.5rem;
 }
 
 nav ul {
@@ -60,31 +66,28 @@ nav a:hover {
   color: #00bcd4;
 }
 
-/* Contenedor principal (sidebar + main) */
+/* Contenedor principal debajo de header */
 .container {
-  flex: 1;
   display: flex;
-  padding: 1rem 2rem;
-  gap: 2rem;
-  background: #b2ebf2;
-  overflow: hidden;
-  margin-left: 50px; /* espacio para la barra de progreso (4px) + margen */
+  margin-top: 60px; /* altura header */
+  flex-grow: 1;
+  min-height: calc(100vh - 60px - 40px); /* espacio para footer */
 }
 
-/* Sidebar fija */
+/* Sidebar fija, a la izquierda, debajo header */
 .sidebar {
   position: fixed;
-  top: 64px; /* altura header */
-  left: 50px; /* ancho barra progreso */
-  width: 200px;
-  height: calc(100vh - 64px); /* altura pantalla menos header */
+  top: 60px; /* justo debajo del header */
+  left: 5px; /* junto a barra progreso */
+  width: 220px;
+  height: calc(100vh - 60px); /* altura total menos header */
   background: #004d40;
   color: white;
   padding: 1rem;
   overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+  z-index: 900;
   border-radius: 0 6px 6px 0;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  z-index: 1000;
 }
 
 .sidebar h2 {
@@ -112,11 +115,11 @@ nav a:hover {
   color: #00bcd4;
 }
 
-/* Main */
+/* Main con margen para no tapar sidebar */
 main {
-  flex: 1;
-  /* para que no quede detrás de sidebar fija, agregamos margen izquierdo */
-  margin-left: 250px; /* ancho sidebar (200) + gap (2rem ~ 32px) + algo extra */
+  margin-left: 225px; /* ancho sidebar + espacio */
+  flex-grow: 1;
+  padding: 1rem 2rem;
   overflow-y: auto;
 }
 
@@ -196,6 +199,7 @@ main {
   cursor: pointer;
   user-select: none;
   transition: background 0.3s;
+  z-index: 10;
 }
 
 .carousel-btn:hover {
@@ -210,7 +214,7 @@ main {
   margin-left: 10px;
 }
 
-/* Footer */
+/* Footer siempre abajo */
 footer {
   background: #00796b;
   color: white;
@@ -219,9 +223,11 @@ footer {
   font-size: 0.9rem;
   flex-shrink: 0;
   margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Enlaces tarjetas */
+/* Link de tarjeta para que todo sea clickable */
 .card-link {
   color: inherit;
   text-decoration: none;
@@ -234,3 +240,4 @@ footer {
 .card-link:hover p {
   color: #00796b;
 }
+
