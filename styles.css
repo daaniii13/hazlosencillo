@@ -25,6 +25,17 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #00bcd4; /* cyan */
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.2s ease-out;
+}
+
 
 header h1 {
   font-weight: 600;
