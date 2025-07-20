@@ -197,3 +197,15 @@ footer {
   padding: 0.8rem;
   font-size: 0.9rem;
 }
+.card-link {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-link:hover h3,
+.card-link:hover p {
+  color: #00796b;
+}
