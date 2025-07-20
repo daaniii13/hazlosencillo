@@ -7,6 +7,7 @@
   padding: 0;
 }
 
+/* Body y layout principal */
 body {
   font-family: 'Fredoka', sans-serif;
   background: linear-gradient(135deg, #e0f7fa, #0288d1);
@@ -14,38 +15,37 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
-/* Barra de progreso fija */
+/* Barra de progreso */
 #progress-bar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 6px;
-  height: 100vh;
+  height: 5px;
   background: #00bcd4;
-  z-index: 10000;
+  width: 0;
+  z-index: 9999;
+  transition: width 0.2s ease-out;
 }
 
-/* Header fijo arriba a la derecha de barra progreso */
+/* Header */
 header {
-  position: fixed;
-  top: 0;
-  left: 6px; /* justo al lado de la barra de progreso */
-  right: 0;
-  height: 60px;
   background: #00796b;
   color: white;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 5px; /* justo debajo de la barra de progreso */
   z-index: 1000;
 }
 
 header h1 {
   font-weight: 600;
-  font-size: 1.5rem;
 }
 
 nav ul {
@@ -65,20 +65,32 @@ nav a:hover {
   color: #00bcd4;
 }
 
-/* Sidebar fija, siempre visible, altura total de ventana menos header */
+/* Contenedor principal: con padding para no tapar sidebar fija */
+.container {
+  display: flex;
+  flex: 1;
+  padding-left: 220px; /* ancho sidebar + margen */
+  padding: 1rem 2rem;
+  background: #b2ebf2;
+  min-height: calc(100vh - 72px); /* altura menos header + footer */
+  box-sizing: border-box;
+}
+
+/* Sidebar fija */
 .sidebar {
   position: fixed;
-  top: 60px; /* justo debajo del header */
-  left: 6px; /* al lado barra progreso */
-  width: 220px;
-  height: calc(100vh - 60px);
+  top: 36px; /* altura barra progreso (5) + header (31 aprox) */
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 36px);
   background: #004d40;
   color: white;
   padding: 1rem;
+  border-radius: 0 0 8px 0;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
   overflow-y: auto;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
-  z-index: 900;
-  border-radius: 0 6px 6px 0;
+  box-sizing: border-box;
+  z-index: 100;
 }
 
 .sidebar h2 {
@@ -106,11 +118,11 @@ nav a:hover {
   color: #00bcd4;
 }
 
-/* Main con margen para no tapar sidebar */
+/* Main */
 main {
-  margin-left: 232px; /* ancho sidebar (220) + barra progreso (6) + margen */
-  padding: 1rem 2rem;
-  flex-grow: 1;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Carousel */
@@ -119,7 +131,6 @@ main {
   display: flex;
   align-items: center;
   height: 280px;
-  margin-bottom: 2rem;
 }
 
 .carousel-track-container {
@@ -134,11 +145,11 @@ main {
   gap: 1rem;
 }
 
-/* Tarjetas artículo */
+/* Cards */
 .card {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   flex: 0 0 300px;
   padding: 1rem;
   display: flex;
@@ -190,7 +201,7 @@ main {
   cursor: pointer;
   user-select: none;
   transition: background 0.3s;
-  z-index: 10;
+  flex-shrink: 0;
 }
 
 .carousel-btn:hover {
@@ -205,19 +216,20 @@ main {
   margin-left: 10px;
 }
 
-/* Footer abajo, normal */
+/* Footer */
 footer {
   background: #00796b;
   color: white;
   text-align: center;
-  padding: 0.8rem;
+  padding: 0.8rem 2rem;
   font-size: 0.9rem;
-  margin-top: auto;
-  width: 100%;
+  margin-top: auto; /* fuerza footer abajo */
   box-sizing: border-box;
+  position: relative;
+  z-index: 10;
 }
 
-/* Para que los links en tarjeta sean clickeables */
+/* Links dentro de cards */
 .card-link {
   color: inherit;
   text-decoration: none;
@@ -229,14 +241,4 @@ footer {
 .card-link:hover h3,
 .card-link:hover p {
   color: #00796b;
-}
-
-/* Scrollbar personalizada para sidebar */
-.sidebar::-webkit-scrollbar {
-  width: 8px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background-color: #00796b;
-  border-radius: 10px;
 }
