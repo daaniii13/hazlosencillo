@@ -5,6 +5,7 @@
   padding: 0;
 }
 
+/* Body y layout principal */
 body {
   font-family: 'Fredoka', sans-serif;
   background: linear-gradient(135deg, #e0f7fa, #0288d1);
@@ -16,23 +17,23 @@ body {
   padding: 0;
 }
 
-/* Barra de progreso */
+/* Barra de progreso vertical izquierda */
 #progress-bar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 0;
-  height: 5px;
+  width: 6px;
+  height: 100vh;
   background: #00bcd4;
   z-index: 9999;
-  transition: width 0.2s ease-out;
+  transition: height 0.2s ease-out;
 }
 
-/* Header */
+/* Header fijo a la derecha de la barra */
 header {
   position: fixed;
   top: 0;
-  left: 6px; /* justo al lado de barra progreso */
+  left: 6px; /* justo al lado barra progreso */
   right: 0;
   height: 60px;
   background: #00796b;
@@ -59,17 +60,18 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
 nav a:hover {
   color: #00bcd4;
 }
 
-/* Sidebar fija */
+/* Sidebar fija, altura total menos header */
 .sidebar {
   position: fixed;
-  top: 60px; /* altura header */
-  left: 6px; /* ancho barra progreso */
+  top: 60px; /* debajo del header */
+  left: 6px; /* al lado barra progreso */
   width: 220px;
   height: calc(100vh - 60px);
   background: #004d40;
@@ -81,25 +83,46 @@ nav a:hover {
   z-index: 100;
 }
 
-/* Container con padding para no tapar sidebar */
+.sidebar h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li + li {
+  margin-top: 0.75rem;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: #00bcd4;
+}
+
+/* Contenedor principal con espacio para sidebar + barra */
 .container {
   display: flex;
   flex: 1;
   padding-left: 232px; /* 220 sidebar + 6 barra + 6 margen */
-  padding-top: 60px; /* para que no tape header */
+  padding: 1rem 2rem;
   background: #b2ebf2;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px); /* menos header */
   box-sizing: border-box;
 }
 
 /* Main con margen para no tapar sidebar */
 main {
   flex-grow: 1;
-  margin-left: 0;
-  padding: 1rem 2rem;
   overflow: hidden;
   position: relative;
-  background: #b2ebf2;
 }
 
 /* Carousel */
@@ -108,6 +131,7 @@ main {
   align-items: center;
   height: 280px;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .carousel-track-container {
@@ -118,10 +142,9 @@ main {
 .carousel-track {
   display: flex;
   gap: 1rem;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.4s ease;
 }
 
-/* Cards */
 .card {
   background: white;
   border-radius: 8px;
@@ -133,52 +156,67 @@ main {
   cursor: pointer;
   user-select: none;
   transition: background 0.3s;
+  z-index: 10;
 }
 
 .card img {
-  border-radius: 6px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
   width: 100%;
   height: auto;
-  margin-bottom: 0.5rem;
 }
 
 .card h3 {
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: #00796b;
+  color: #004d40;
 }
 
 .card p {
+  font-size: 0.9rem;
   color: #004d40;
   flex-grow: 1;
 }
 
 .card a {
+  margin-top: 0.5rem;
   color: #00796b;
   text-decoration: none;
-  margin-top: auto;
+  font-weight: 600;
+  align-self: flex-start;
 }
 
 .card a:hover {
   text-decoration: underline;
 }
 
-/* Botones del carrusel */
 .carousel-btn {
   background: #00796b;
   border: none;
   color: white;
   font-size: 2rem;
-  padding: 0 1rem;
+  padding: 0 12px;
   cursor: pointer;
+  border-radius: 4px;
   user-select: none;
   transition: background 0.3s;
+  height: 50px;
+  align-self: center;
 }
 
 .carousel-btn:hover {
   background: #004d40;
 }
 
-/* Footer */
+.carousel-btn.prev {
+  margin-right: 10px;
+}
+
+.carousel-btn.next {
+  margin-left: 10px;
+}
+
+/* Footer normal */
 footer {
   background: #00796b;
   color: white;
@@ -192,11 +230,20 @@ footer {
   z-index: 10;
 }
 
+/* Links dentro de cards */
+.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-link:hover p {
+  color: #00796b;
+}
+
 /* Scrollbar personalizada para sidebar */
 .sidebar::-webkit-scrollbar {
   width: 8px;
 }
-
 .sidebar::-webkit-scrollbar-thumb {
   background-color: #00796b;
   border-radius: 10px;
