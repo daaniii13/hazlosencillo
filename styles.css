@@ -1,4 +1,4 @@
-/* Reset base */
+/* Reset */
 *,
 *::before,
 *::after {
@@ -7,18 +7,18 @@
   padding: 0;
 }
 
-/* Body: flex vertical para footer abajo */
+/* Body flex para footer abajo */
 body {
   font-family: 'Fredoka', sans-serif;
   background: linear-gradient(135deg, #e0f7fa, #0288d1);
   color: #004d40;
-  min-height: 100vh; /* ocupa toda la pantalla */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden; /* evita scroll horizontal */
+  overflow-x: hidden;
 }
 
-/* Header */
+/* Header fijo en la parte superior */
 header {
   background: #00796b;
   color: white;
@@ -27,6 +27,9 @@ header {
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header h1 {
@@ -50,44 +53,33 @@ nav a:hover {
   color: #00bcd4;
 }
 
-/* Barra de progreso vertical a la izquierda, fuera del flujo */
+/* Barra de progreso vertical fija a la izquierda, sobre sidebar */
 #progress-bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 5px;
-  height: 0%;
+  height: 0;
   background: #00bcd4;
-  z-index: 9999;
-  transition: height 0.2s ease-out;
+  z-index: 1100; /* arriba de todo */
   border-radius: 0 5px 5px 0;
+  transition: height 0.2s ease-out;
 }
 
-/* Contenedor principal: flex fila */
-.container {
-  display: flex;
-  flex: 1 1 auto; /* ocupa el espacio entre header y footer */
-  padding: 1rem 2rem;
-  gap: 2rem;
-  background: #b2ebf2;
-  min-height: 0; /* muy importante para sticky */
-  margin-left: 5px; /* espacio para barra progreso */
-  overflow: visible; /* que no corte sticky */
-}
-
-/* Sidebar sticky */
+/* Sidebar fija izquierda toda altura */
 .sidebar {
-  position: sticky;
-  top: 1rem;
-  align-self: flex-start;
+  position: fixed;
+  top: 0;
+  left: 5px; /* 5px para dejar espacio a la barra progreso */
   width: 200px;
+  height: 100vh;
   background: #004d40;
   color: white;
   padding: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  flex-shrink: 0;
-  height: fit-content; /* solo el alto necesario */
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  overflow-y: auto;
+  z-index: 1050;
+  border-radius: 0 6px 6px 0;
 }
 
 .sidebar h2 {
@@ -98,6 +90,7 @@ nav a:hover {
 
 .sidebar ul {
   list-style: none;
+  padding-left: 0;
 }
 
 .sidebar li {
@@ -115,13 +108,22 @@ nav a:hover {
   color: #00bcd4;
 }
 
-/* Main ocupa resto y permite scroll si hace falta */
+/* Contenido principal a la derecha de sidebar */
+.container {
+  margin-left: 210px; /* ancho sidebar + 10px margen */
+  padding: 1rem 2rem;
+  flex: 1;
+  background: #b2ebf2;
+  min-height: calc(100vh - 80px); /* altura total menos header/footer */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Main ocupa todo el ancho disponible */
 main {
   flex: 1 1 auto;
-  min-width: 0; /* evita overflow horizontal */
-  overflow-y: auto; /* scroll vertical si contenido largo */
-  max-height: calc(100vh - 80px); /* ajusta altura según header/footer */
-  /* 80px = aprox header + footer */
+  overflow: visible;
 }
 
 /* Carousel */
@@ -144,7 +146,7 @@ main {
   gap: 1rem;
 }
 
-/* Tarjetas artículo */
+/* Tarjetas */
 .card {
   background: white;
   border-radius: 8px;
@@ -214,7 +216,7 @@ main {
   margin-left: 10px;
 }
 
-/* Footer fijo abajo */
+/* Footer al fondo */
 footer {
   background: #00796b;
   color: white;
@@ -222,6 +224,9 @@ footer {
   padding: 0.8rem 2rem;
   font-size: 0.9rem;
   flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+  /* para que quede al final, no fijo */
 }
 
 /* Enlaces card */
@@ -237,4 +242,3 @@ footer {
 .card-link:hover p {
   color: #00796b;
 }
-
