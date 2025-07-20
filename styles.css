@@ -228,5 +228,12 @@ footer {
 .sidebar {
   position: sticky;
   top: 1rem;
+  align-self: flex-start;
   height: fit-content;
+  background: #004d40;
+  color: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
+
