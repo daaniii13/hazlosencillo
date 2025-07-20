@@ -5,83 +5,92 @@
   box-sizing: border-box;
 }
 
-/* Body y layout general */
+/* Body y layout principal */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-  color: #333;
-  background: #fff;
+  font-family: 'Fredoka', sans-serif, Arial, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #00796b);
+  color: #004d40;
   min-height: 100vh;
-  /* Padding izquierdo para dejar espacio a la sidebar fija */
-  padding-left: 220px;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
-/* Barra de progreso en top */
+/* Barra de progreso fija arriba */
 #progress-bar {
   position: fixed;
   top: 0;
   left: 0;
   height: 5px;
-  background: #28a745; /* verde original */
-  width: 0%;
+  width: 0;
+  background: #00bcd4;
   z-index: 9999;
+  transition: width 0.2s ease-out;
 }
 
-/* Header: ancho completo y fijo */
+/* Header ocupa toda la anchura excepto barra progreso */
 header {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 6px; /* justo al lado de la barra progreso */
   right: 0;
   height: 60px;
-  background: #28a745; /* verde original */
+  background: #00796b;
   color: white;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  justify-content: space-between;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Título y nav en header */
 header h1 {
+  font-weight: 600;
   font-size: 1.5rem;
-  flex-grow: 1;
+  margin: 0;
 }
 
-header nav ul {
+nav ul {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
 
-header nav ul li a {
+nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.3s;
 }
 
-/* Sidebar fija a la izquierda */
+nav ul li a:hover {
+  color: #00bcd4;
+}
+
+/* Sidebar fija siempre visible */
 .sidebar {
   position: fixed;
   top: 60px; /* justo debajo del header */
-  left: 0;
+  left: 6px; /* justo al lado barra progreso */
   width: 220px;
   height: calc(100vh - 60px);
-  background: #e9f5ec; /* verde muy claro */
-  border-right: 1px solid #ccc;
+  background: #004d40;
+  color: white;
   padding: 1rem;
   overflow-y: auto;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-  z-index: 999;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+  border-radius: 0 6px 6px 0;
+  box-sizing: border-box;
+  z-index: 100;
 }
 
 .sidebar h2 {
   margin-bottom: 1rem;
   font-size: 1.25rem;
-  color: #28a745;
+  font-weight: 700;
+  color: #00bcd4;
 }
 
 .sidebar ul {
@@ -93,37 +102,40 @@ header nav ul li a {
 }
 
 .sidebar ul li a {
+  color: #00bcd4;
   text-decoration: none;
-  color: #28a745;
   font-weight: 600;
+  transition: color 0.3s;
 }
 
-/* Main con margen a la izquierda para no tapar la sidebar */
+.sidebar ul li a:hover {
+  color: #80deea;
+}
+
+/* Contenedor principal con espacio para sidebar */
+.container {
+  display: flex;
+  flex: 1;
+  padding-left: 232px; /* ancho sidebar + margen */
+  background: #b2ebf2;
+  min-height: calc(100vh - 60px);
+  box-sizing: border-box;
+}
+
+/* Main con margen para no tapar sidebar */
 main {
-  margin-top: 60px; /* debajo del header */
+  margin-left: 232px; /* ancho sidebar + margen */
   padding: 1rem 2rem;
   flex-grow: 1;
-  min-height: calc(100vh - 60px);
+  overflow-x: hidden;
+  position: relative;
   max-width: 900px;
-  margin-left: 220px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Footer ancho completo */
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #28a745;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
-/* Carrusel */
+/* Carousel */
 .carousel {
   position: relative;
   margin-top: 1rem;
@@ -131,7 +143,7 @@ footer {
 
 .carousel-track-container {
   overflow: hidden;
-  margin: 0 40px;
+  margin: 0 20px;
 }
 
 .carousel-track {
@@ -142,40 +154,44 @@ footer {
   padding: 0;
 }
 
+/* Cards artículos */
 .card {
   min-width: 280px;
-  background: #e9f5ec; /* verde muy claro */
-  border-radius: 6px;
+  background: #e0f7fa;
+  border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-/* Imagen sin cortar y proporción correcta */
 .card img {
   width: 100%;
   height: auto;
-  object-fit: contain;
-  border-radius: 6px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
   margin-bottom: 0.5rem;
 }
 
 .card h3 {
   margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  color: #28a745;
+  font-size: 1.2rem;
+  color: #00796b;
+  font-weight: 700;
 }
 
 .card p {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 0.95rem;
+  color: #004d40;
+  flex-grow: 1;
 }
 
-/* Botones carrusel */
+/* Botones del carrusel */
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #28a745;
+  background: #00796b;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -193,46 +209,72 @@ footer {
 }
 
 .carousel-btn.prev {
-  left: 0;
+  left: 5px;
 }
 
 .carousel-btn.next {
-  right: 0;
+  right: 5px;
 }
 
-/* Scrollbar para sidebar */
+/* Footer a toda la anchura */
+footer {
+  background: #00796b;
+  color: white;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: auto;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 10;
+}
+
+/* Scrollbar personalizada para sidebar */
 .sidebar::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background: #28a745;
-  border-radius: 3px;
+  background-color: #00bcd4;
+  border-radius: 10px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  body {
-    padding-left: 0;
-  }
+  /* Sidebar pasa a arriba */
   .sidebar {
     position: relative;
     width: 100%;
     height: auto;
     top: 0;
-    border-right: none;
+    border-radius: 0;
     box-shadow: none;
   }
+
+  /* Header ancho completo */
   header {
     left: 0;
+    padding: 1rem;
   }
+
+  /* Main sin margen lateral */
   main {
+    margin-left: 0;
     max-width: 100%;
     padding: 1rem;
-    margin-left: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
+
   footer {
-    position: relative;
-    margin-top: 1rem;
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .container {
+    padding-left: 0;
   }
 }
+
