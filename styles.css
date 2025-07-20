@@ -1,4 +1,4 @@
-/* Reset y base */
+/* Reset básico */
 *,
 *::before,
 *::after {
@@ -16,23 +16,22 @@ body {
   flex-direction: column;
 }
 
-/* Barra de progreso fija a la izquierda */
+/* Barra de progreso fija */
 #progress-bar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 5px;
+  width: 6px;
   height: 100vh;
   background: #00bcd4;
   z-index: 10000;
-  transition: width 0.2s ease-out;
 }
 
-/* Header fijo arriba, al lado derecho de barra progreso */
+/* Header fijo arriba a la derecha de barra progreso */
 header {
   position: fixed;
   top: 0;
-  left: 5px; /* al lado barra progreso */
+  left: 6px; /* justo al lado de la barra de progreso */
   right: 0;
   height: 60px;
   background: #00796b;
@@ -66,26 +65,18 @@ nav a:hover {
   color: #00bcd4;
 }
 
-/* Contenedor principal debajo de header */
-.container {
-  display: flex;
-  margin-top: 60px; /* altura header */
-  flex-grow: 1;
-  min-height: calc(100vh - 60px - 40px); /* espacio para footer */
-}
-
-/* Sidebar fija, a la izquierda, debajo header */
+/* Sidebar fija, siempre visible, altura total de ventana menos header */
 .sidebar {
   position: fixed;
   top: 60px; /* justo debajo del header */
-  left: 5px; /* junto a barra progreso */
+  left: 6px; /* al lado barra progreso */
   width: 220px;
-  height: calc(100vh - 60px); /* altura total menos header */
+  height: calc(100vh - 60px);
   background: #004d40;
   color: white;
   padding: 1rem;
   overflow-y: auto;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
   z-index: 900;
   border-radius: 0 6px 6px 0;
 }
@@ -117,10 +108,9 @@ nav a:hover {
 
 /* Main con margen para no tapar sidebar */
 main {
-  margin-left: 225px; /* ancho sidebar + espacio */
-  flex-grow: 1;
+  margin-left: 232px; /* ancho sidebar (220) + barra progreso (6) + margen */
   padding: 1rem 2rem;
-  overflow-y: auto;
+  flex-grow: 1;
 }
 
 /* Carousel */
@@ -129,6 +119,7 @@ main {
   display: flex;
   align-items: center;
   height: 280px;
+  margin-bottom: 2rem;
 }
 
 .carousel-track-container {
@@ -147,7 +138,7 @@ main {
 .card {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex: 0 0 300px;
   padding: 1rem;
   display: flex;
@@ -214,20 +205,19 @@ main {
   margin-left: 10px;
 }
 
-/* Footer siempre abajo */
+/* Footer abajo, normal */
 footer {
   background: #00796b;
   color: white;
   text-align: center;
   padding: 0.8rem;
   font-size: 0.9rem;
-  flex-shrink: 0;
   margin-top: auto;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Link de tarjeta para que todo sea clickable */
+/* Para que los links en tarjeta sean clickeables */
 .card-link {
   color: inherit;
   text-decoration: none;
@@ -241,3 +231,12 @@ footer {
   color: #00796b;
 }
 
+/* Scrollbar personalizada para sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #00796b;
+  border-radius: 10px;
+}
