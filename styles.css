@@ -10,7 +10,6 @@ body {
   color: #333;
   background: #fff;
   min-height: 100vh;
-  padding-left: 220px;
   display: flex;
   flex-direction: column;
 }
@@ -91,22 +90,26 @@ header nav ul li a {
   font-weight: 600;
 }
 
-main {
+.container {
+  display: flex;
   margin-top: 60px;
-  padding: 1rem 2rem;
+}
+
+main {
   flex-grow: 1;
-  min-height: calc(100vh - 60px);
+  padding: 1rem 2rem;
   max-width: 900px;
+  margin-left: 220px;
 }
 
 footer {
-  margin-left: 220px;
   background: #007bff;
   color: white;
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  margin-left: 220px;
 }
 
 .carousel {
@@ -194,6 +197,7 @@ footer {
   body {
     padding-left: 0;
   }
+
   .sidebar {
     position: relative;
     width: 100%;
@@ -202,14 +206,19 @@ footer {
     border-right: none;
     box-shadow: none;
   }
+
   header {
     left: 0;
   }
-  footer {
-    margin-left: 0;
-  }
+
   main {
+    margin-left: 0;
     max-width: 100%;
     padding: 1rem;
   }
+
+  footer {
+    margin-left: 0;
+  }
 }
+
