@@ -37,6 +37,7 @@ window.addEventListener('scroll', () => {
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   const scrollPercent = (scrollTop / docHeight) * 100;
   const progressBar = document.getElementById('progress-bar');
-  progressBar.style.height = scrollPercent + '%';
+  progressBar.style.width = scrollPercent + '%';  // Aquí cambio height por width
 });
+
 
