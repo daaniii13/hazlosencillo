@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -25,17 +25,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-#progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 5px;
-  background: #00bcd4; /* cyan */
-  width: 0%;
-  z-index: 9999;
-  transition: width 0.2s ease-out;
 }
 
 header h1 {
@@ -61,29 +50,26 @@ nav a:hover {
 
 /* Contenedor principal */
 .container {
-  flex: 1;
   display: flex;
+  flex: 1;
   padding: 1rem 2rem;
   gap: 2rem;
   background: #b2ebf2;
-  /* quitamos overflow hidden para sticky funcione bien */
-  /* overflow: hidden; */
-  /* altura mínima para que footer quede abajo */
-  min-height: calc(100vh - 74px - 38px); /* Ajusta según alto header+footer */
+  overflow: hidden;
+  margin-bottom: 60px; /* Espacio para el footer */
 }
 
 /* Sidebar */
 .sidebar {
-  width: 200px;
   position: sticky;
   top: 1rem;
-  height: fit-content;
+  width: 200px;
   background: #004d40;
   color: white;
   padding: 1rem;
   border-radius: 6px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  flex-shrink: 0; /* que no se reduzca */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
 }
 
 .sidebar h2 {
@@ -114,7 +100,7 @@ nav a:hover {
 /* Main y carrusel */
 main {
   flex: 1;
-  overflow: auto; /* si quieres scroll interno */
+  overflow: hidden;
   position: relative;
 }
 
@@ -142,7 +128,7 @@ main {
 .card {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex: 0 0 300px;
   padding: 1rem;
   display: flex;
@@ -206,7 +192,6 @@ main {
 
 .next {
   margin-left: 10px;
-}
 
 /* Footer */
 footer {
@@ -215,18 +200,7 @@ footer {
   text-align: center;
   padding: 0.8rem;
   font-size: 0.9rem;
-  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
 }
 
-.card-link {
-  color: inherit;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.card-link:hover h3,
-.card-link:hover p {
-  color: #00796b;
-}
