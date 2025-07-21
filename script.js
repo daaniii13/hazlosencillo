@@ -1,41 +1,35 @@
-// Carrusel
-const track = document.querySelector('.carousel-track');
-const prevButton = document.getElementById('prevBtn');
-const nextButton = document.getElementById('nextBtn');
-const cards = track ? Array.from(track.children) : [];
-const cardWidth = cards.length > 0 ? cards[0].getBoundingClientRect().width + 16 : 0; // 16 es el gap
+document.addEventListener('DOMContentLoaded', () => {
+  // Toggle menu móvil
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('hidden');
+  });
 
-let currentIndex = 0;
+  // Dropdown sidebar
+  document.querySelectorAll('.dropdown-group .dropdown-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.dropdown-group');
+      parent.classList.toggle('open');
+    });
+  });
 
-function moveToSlide(index) {
-  if (!track || cardWidth === 0) return;
+  // Carrusel
+  const carousel = document.getElementById('featured-articles');
+  document.querySelector('.carousel-prev').addEventListener('click', () => {
+    carousel.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+  document.querySelector('.carousel-next').addEventListener('click', () => {
+    carousel.scrollBy({ left: 300, behavior: 'smooth' });
+  });
 
-  if (index < 0) {
-    currentIndex = cards.length - 1;
-  } else if (index >= cards.length) {
-    currentIndex = 0;
-  } else {
-    currentIndex = index;
-  }
-
-  track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-}
-
-if (prevButton) prevButton.addEventListener('click', () => moveToSlide(currentIndex - 1));
-if (nextButton) nextButton.addEventListener('click', () => moveToSlide(currentIndex + 1));
-
-// Auto-play cada 5 segundos
-if (cards.length > 0) {
-  setInterval(() => {
-    moveToSlide(currentIndex + 1);
-  }, 5000);
-}
-
-// Barra de progreso de scroll
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollPercent = (scrollTop / docHeight) * 100;
-  const progressBar = document.getElementById('progress-bar');
-  progressBar.style.width = scrollPercent + '%';
+  // Likes clickeables
+  document.querySelectorAll('.like-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const span = btn.querySelector('.like-count');
+      span.textContent = parseInt(span.textContent) + 1;
+      btn.classList.add('liked');
+    });
+  });
 });
+
