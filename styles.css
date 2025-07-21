@@ -112,28 +112,23 @@ nav ul li a:hover {
   color: #80deea;
 }
 
-/* Contenedor principal con espacio para sidebar */
 .container {
   display: flex;
   flex: 1;
-  padding-left: 232px; /* ancho sidebar + margen */
+  padding-left: 232px; /* espacio para sidebar izquierda */
+  padding-right: 232px; /* espacio para sidebar derecha */
   background: #b2ebf2;
   min-height: calc(100vh - 60px);
   box-sizing: border-box;
 }
 
-/* Main con margen para no tapar sidebar */
+
+
 main {
-  margin-left: 232px; /* ancho sidebar + margen */
-  padding: 1rem 2rem;
-  flex-grow: 1;
-  overflow-x: hidden;
-  position: relative;
-  max-width: 900px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-left: 0;
+  margin-right: 0;
 }
+
 
 /* Carousel */
 .carousel {
@@ -240,18 +235,55 @@ footer {
   background-color: #00bcd4;
   border-radius: 10px;
 }
+/* Barra lateral derecha fija */
+.rightbar {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 220px;
+  height: calc(100vh - 60px);
+  background: #004d40;
+  color: white;
+  padding: 1rem;
+  overflow-y: auto;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+  border-radius: 6px 0 0 6px;
+  z-index: 100;
+}
+
+.rightbar h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #00bcd4;
+}
+
+.rightbar ul {
+  list-style: none;
+}
+
+.rightbar ul li {
+  margin-bottom: 0.75rem;
+}
+
+.rightbar ul li a {
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.rightbar ul li a:hover {
+  color: #80deea;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
-  /* Sidebar pasa a arriba */
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    top: 0;
-    border-radius: 0;
-    box-shadow: none;
+  .rightbar {
+    display: none;
   }
+}
+
 
   /* Header ancho completo */
   header {
