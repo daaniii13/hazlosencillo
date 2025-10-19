@@ -1,27 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hazlo Sencillo – Blog y Foro</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css" />
+    <!--- meta informacion -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="sueño, dormir, ciclos de sueño, fase rem, estudio">
+    <meta name="description" content="Artículo sobre la ciencia del sueño">
+    <meta name="author" content="Dani MM 13">
+    <title>Hazlo Sencillo</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
+    <!-- Barra de navegación superior -->
+    <nav class="topnav" role="navigation" aria-label="Principal">
+        <div class="nav-inner">
+            <a class="brand" href="#">Hazlo Sencillo</a>
+            <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="sr-only">Abrir menú</span>
+                <span class="hamburger" aria-hidden="true"></span>
+            </button>
+            <ul id="primary-navigation" class="nav-links">
+                <li><a href="#articulos">Artículos</a></li>
+                <li><a href="#novedades">Novedades</a></li>
+                <li><a href="#foros">Foros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Encabezado con introducción -->
+    <header class="site-hero" role="banner">
+        <div class="hero-inner">
+            <h1>Blog dedicado al sueño</h1>
+            <p class="tagline">Explora la psicología y la ciencia del sueño para mejorar tu descanso y bienestar.</p>
+        </div>
+        <!-- índice con las secciones del blog  -->
+        <nav class="index-nav" aria-label="Índice del artículo">
+            <span class="index-label">Índice:</span>
+            <ul>
+                <li><a href="#cienciasuenio">La ciencia del sueño</a></li>
+                <li><a href="#ciclossuenio">Los ciclos del sueño</a></li>
+                <li><a href="#psicologiasuenio">La psicología del sueño</a></li>
+                <li><a href="#experimentoruso">Experimento ruso</a></li>
+                <li><a href="#referencias">Referencias</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
 
-  <!-- Header -->
-  <header class="bg-var-dark-green text-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center space-x-4">
-        <button id="menu-toggle" class="lg:hidden text-white focus:outline-none" aria-label="Abrir menú">
-          <i class="fas fa-bars fa-lg"></i>
-        </button>
-        <a href="#" class="title-font text-2xl font-bold flex items-center">
-          <span class="bg-var-light-accent text-var-dark-green px-2 py-1 rounded mr-2">HS</span>
-          Hazlo Sencillo
-        </a>
-      </div>
-      <nav id="nav-menu" class="hidden lg:flex space-x-6">
-        <a href="#" class="nav-link"><i class="fas fa-home mr-2"></i>Inicio</a>
-        <a href="#contact" class="nav-link"><i class="fas fa-envelope mr
+    <!-- Estructura principal del blog  -->
+    <main>
+        <div class="container">
+        <section id="cienciasuenio">
+            <h2 class="post-title">La ciencia del sueño</h2>
+            <p>
+                <img class="post-img img-lg align-left" src="./img/articulo1.png" alt="fases del sueño">
+                La <b>somnología</b> o ciencia del sueño es una rama de la neurociencia que estudia cómo y por qué dormimos, así como los mecanismos fisiológicos y psicológicos implicados.
+                Durante el sueño, el cerebro realiza funciones reparadoras esenciales: procesa recuerdos, regula emociones, fortalece el sistema inmunitario y repara células. 
+                El sueño se divide en dos fases principales: <b>no REM</b> (donde ocurre el descanso físico profundo) y <b>REM</b> (donde se producen los sueños vívidos y se consolidan las emociones).
+            </p>
+            <p>
+                Soñar cumple funciones vitales: permite procesar emociones, estimular la creatividad y consolidar aprendizajes. 
+                Las pesadillas, que ocurren principalmente en la fase REM, pueden estar relacionadas con el estrés o la ansiedad, pero no siempre tienen un significado universal.
+                En general, el sueño no es un estado pasivo, sino un proceso activo que mantiene el equilibrio entre cuerpo y mente. 
+                Dormir poco o mal se asocia con problemas de salud física y mental, deterioro cognitivo y cambios de humor.
+            </p>
+
+            <!-- Cita textual -->
+            <blockquote>
+                "El sueño es la cadena dorada que mantiene la salud y el cuerpo juntos." — Thomas Dekker
+            </blockquote>
+
+            <!-- Texto subrayado y tachado -->
+            <p>
+                Dormir <u>adecuadamente</u> es esencial; pensar que <s>dormir poco mejora la productividad</s> es un error común.
+            </p>
+
+            <!-- imagen duplicada eliminada -->
+        </section>
+
+        <section id="ciclossuenio">
+            <h2 class="post-title">Los ciclos del sueño</h2>
+            <p>
+                <img class="post-img img-lg align-right" src="./img/articulo2.png" alt="Ciclos del sueño">
+                Cada noche atravesamos entre <b>4 y 6 ciclos de sueño</b>, y cada ciclo tiene una duración aproximada de entre 90 y 120 minutos.
+                Estos ciclos incluyen varias etapas: sueño ligero (N1 y N2), sueño profundo (N3 y N4) y la fase <b>REM</b>, donde ocurren los sueños más intensos.
+            </p>
+            <p>
+                En los primeros ciclos de la noche predomina el sueño profundo, que ayuda a la recuperación física. 
+                En los últimos ciclos, en cambio, aumenta el tiempo en fase REM, lo que favorece la consolidación de recuerdos y emociones. 
+                Despertar en medio de un ciclo puede generar sensación de cansancio, por lo que se recomienda mantener rutinas de sueño estables y respetar los horarios.
+            </p>
+            <p>
+                Dormir bien implica no solo descansar suficientes horas, sino también <b>completar los ciclos de sueño</b> sin interrupciones. 
+                Para lograrlo, se aconseja mantener un entorno oscuro y silencioso, evitar pantallas antes de dormir y establecer horarios regulares. 
+                Un sueño de calidad mejora la concentración, el estado de ánimo y el rendimiento diario.
+            </p>
+
+            <!-- Lista de descripción -->
+            <dl>
+                <dt>REM</dt>
+                <dd>Fase donde ocurren los sueños vívidos y se consolidan las emociones.</dd>
+                <dt>No REM</dt>
+                <dd>Etapa de descanso físico profundo y recuperación corporal.</dd>
+            </dl>
+
+            <!-- Texto preformateado -->
+            <pre>
+                Etapas principales:
+                N1 - Somnolencia inicial
+                N2 - Sueño ligero
+                N3 y N4 - Sueño profundo
+                REM - Movimientos oculares rápidos
+            </pre>
+            <!-- imagen integrada en el primer párrafo: se insertará más arriba -->
+        </section>
+
+        <section id="psicologiasuenio">
+            <h2 class="post-title">La psicología del sueño</h2>
+            <p>
+                <img class="post-img img-lg align-left" src="./img/articulo3.png" alt="Psicología del sueño">
+                La psicología del sueño analiza cómo la mente interpreta, simboliza y procesa experiencias mientras dormimos.
+                Los sueños en la fase <b>REM</b> suelen ser más intensos, con emociones fuertes y escenas surrealistas, mientras que en la fase <b>NREM</b> predominan pensamientos más simples y cotidianos.
+            </p>
+            <p>
+                En la fase REM, el cerebro reduce la actividad racional del córtex frontal, lo que permite que las imágenes y emociones fluyan sin control lógico. 
+                Desde la psicología, se ha propuesto que los sueños ayudan a <b>procesar emociones</b>, <b>regular el estado de ánimo</b> y <b>fomentar la creatividad</b>. 
+                Algunos enfoques también los consideran un “ensayo mental” de conflictos o miedos de la vida diaria.
+            </p>
+            <p>
+                Existen diferentes formas de interpretar los sueños. Según el psicoanálisis clásico, se distingue entre el contenido <i>manifiesto</i> (lo que recordamos del sueño) y el <i>latente</i> (su significado oculto). 
+                En cambio, corrientes más modernas sostienen que los sueños reflejan las preocupaciones y emociones personales de cada individuo, sin símbolos universales fijos.
+                En cualquier caso, el sueño representa un equilibrio entre la <b>fisiología cerebral</b> y la <b>vida emocional</b>, donde el cerebro combina memoria, imaginación y emoción para mantener el bienestar mental.
+            </p>
+
+            <!-- Superíndice y subíndice -->
+            <p>
+                La cafeína (C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>) bloquea los receptores de adenosina, reduciendo la sensación de sueño.  
+                La energía cerebral se mide en ATP (adenosín trifosfato), que libera P<sup>3+</sup> en reacciones metabólicas.
+            </p>
+            <!-- imagen integrada en el primer párrafo: se insertará más arriba -->
+        </section>
+    </main>
+
+    <!-- Tabla con información acerca de investigaciones hechas y una lista ordenada con los autores  -->
+        <aside id="experimentoruso" class="reveal aside-card">
+    <table>
+            <caption><h3><b>Experimento ruso del sueño:</b></h3></caption>
+            <tr>
+                <th>Periodo del proyecto</th>
+                <th>Finalidad del proyecto</th>
+                <th>Desarrollo del proyecto</th>
+                <th>Análisis final</th>
+                <th>Fuentes usadas</th>
+            </tr>
+            <tr>
+                <td>Finales de la década de 1940</td>
+                <td>Estudiar los efectos de la privación extrema del sueño en el cuerpo y la mente humana.</td>
+                <td>Un grupo de prisioneros fue mantenido despierto durante varios días usando un supuesto gas experimental.</td>
+                <td>El experimento derivó en comportamientos irracionales, alucinaciones y graves daños psicológicos, 
+                    convirtiéndose en una leyenda urbana más que en un estudio científico. Se tiene
+                    constancia de que se realizaron proyectos de este calibre en la guerra fría.</td>
+                    <td class="center-thumb"> Click imagen:
+                        <a href="https://en.wikipedia.org/wiki/Russian_Sleep_Experiment" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/4/42/RussianSleepExperimentGuy.png" 
+                                alt="artículo de wikipedia">
+                        </a>
+                    </td>
+            </tr>
+        </table>
+            </aside>
+            </div> <!-- .container -->
+        <br>
+
+    <!--Pie de página, contendrá el hipervinculo y una imagen asociada a cada uno -->
+    <hr>
+        <footer id="referencias">
+            <div class="footer-inner">
+                <p>Fuentes y recursos utilizados en este artículo:</p>
+                <div class="referencias">
+                    <a href="https://culturablog.com/ciencia/la-ciencia-del-sueno/" target="_blank">
+                        <span>Ciencia del sueño</span>
+                        <img src="./img/icono1.png" alt="Ciencia del sueño">
+                    </a>
+
+                    <a href="https://www.gurudeldescanso.com/blog/ciclos-de-sueno" target="_blank">
+                        <span>Ciclos del sueño</span>
+                        <img src="./img/icono2.png" alt="Ciclos del sueño">
+                    </a>
+
+                    <a href="https://psicoterapeutas.com/tratamientos/psicologia-y-fisiologia-suenos/" target="_blank">
+                        <span>Psicología del sueño</span>
+                        <img src="./img/icono3.png" alt="Psicología del sueño">
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <script src="js/animations.js" defer></script>
+</body>
+</html>
