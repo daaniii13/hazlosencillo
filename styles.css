@@ -99,9 +99,32 @@ footer{max-width:var(--max-width);margin:18px auto;padding:18px 20px;color:var(-
 
 /* Responsive */
 @media (max-width:900px){
+  /* Images stack and take full width on small screens */
   .post-img{float:none;width:100%;margin:12px 0}
-  .topnav .nav-links{display:none}
+
+  /* Show hamburger button and hide inline nav links by default */
+  .nav-toggle{display:block}
+  .topnav .nav-links{display:none; /* default hidden, JS toggles inline style */
+    position:absolute;right:20px;top:64px;z-index:120; background:linear-gradient(180deg, rgba(15,23,32,0.98), rgba(15,23,32,0.96)); padding:12px;border-radius:10px;box-shadow:0 6px 24px rgba(2,6,23,0.6);max-width:calc(100% - 40px);}
+
+  /* Mobile: stack nav items vertically when visible */
+  .topnav .nav-links{flex-direction:column;gap:8px}
+  .topnav .nav-links a{padding:8px 10px}
+
+  /* Ensure sections stack cleanly */
   main .container > section{display:block}
+
+  /* Slightly smaller hero on narrow screens */
+  .site-hero h1{font-size:1.4rem}
+
+  /* Reduce container horizontal padding on small devices */
+  .container{padding:0 12px}
+
+  /* Index navigation should wrap on small screens */
+  .index-nav{flex-wrap:wrap}
+
+  /* Allow tables to scroll horizontally so layout doesn't break */
+  .aside-card{overflow-x:auto}
 }
 
 /* Centrar la miniatura del experimento en la celda */
