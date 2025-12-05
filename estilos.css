@@ -1,0 +1,249 @@
+/* Tipografía general usada */
+h1, h2, h3 { color: #ffffff; font-family: 'Courier New', Courier, monospace; }
+p, li, dd { line-height: 1.5; color: #d7e6f2; }
+
+/* Cabecera y subtitulo */
+.cabecera {
+  background-color: #0f2430;
+  text-align: center;
+  padding: 40px 20px;
+}
+.subtitulo { 
+  color: #9aa6b2; 
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Índice */
+.indice { 
+  text-align: center; 
+  margin: 5px 0; 
+}
+.indice a { 
+  color: #9aa6b2; 
+}
+.indice ul { 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
+}
+.indice li { 
+  display: inline; 
+  margin-right: 15px; 
+}
+.indice a:hover {
+  background-color: #1b324d;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+/* Cuerpo */
+body {
+  background-color: #0f1720;
+  color: #e6eef6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Contenedor principal */
+.contenedor { 
+    width: 900px; 
+    margin: 0 auto; 
+    padding: 20px; 
+}
+/* AVISO: se aplica en las 3 imágenes y aumenta el tamaño
+durante el tiempo que se encuentre dentro del marco de la
+página, al mover el cursor fuera vuelve al tamaño original */
+.contenedor:hover img {
+  transform: scale(1.05); 
+}
+
+/*Flex responsive */
+.contenedor-flex {
+  display: block; /* por defecto NO usa el flex en móvil */
+}
+
+/* Para pantallas medianas y grandes activa el layout flex */
+@media (min-width: 780px) {
+  .contenedor-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Secciones */
+section {
+  background-color: #0f2430;
+  border: 1px solid #1b2d3a;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+/* Color bonito por si se selecciona texto de los artículos*/
+section::selection { 
+  color: rgb(84, 225, 65); 
+}
+
+/* Imágenes de las secciones */
+.img-posicion {
+  width: 360px;
+  height: auto;
+  margin: 10px;
+  max-width: 100%;
+}
+/* Alineación a la derecha */
+.derecha {
+  float: right;
+  margin-left: 15px;
+}
+/* Alineación a la izquierda */
+.izquierda {
+  float: left;
+  margin-left: 15px;
+}
+
+/* Limpiador básico */
+.limpiar { 
+    clear: both; 
+    height: 0; 
+}
+
+/* Texto con formatos distintos */
+blockquote {
+  border-left: 3px solid #6c5b7b;
+  padding-left: 10px;
+  color: #9aa6b2;
+  font-style: italic;
+}
+pre { 
+  background-color: #1b324d; 
+  padding: 10px; 
+  color: #9aa6b2; 
+}
+
+/* Tabla del aside */
+.aside { 
+  width: 900px; 
+  margin: 0 auto 20px; 
+  padding: 10px; 
+}
+table { 
+  width: 100%; 
+  color: #9aa6b2; 
+}
+th, td { 
+  border: 1px solid #1b2d3a; 
+  padding: 10px; 
+  text-align: left; 
+}
+
+/* Pie de página */
+footer { 
+    background-color: #0f2430; 
+    color: #9aa6b2; 
+    text-align: center; 
+    padding: 10px; 
+}
+
+/* Cada enlace de referencias se muestra en línea */
+.referencias a { /*sobre los enlaces */
+  display: inline-block;
+  width: 100px;
+  margin: 10px;
+  color: #9aa6b2;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease; /* mini animación */
+}
+.referencias img { /* sobre las imágenes */
+  width: 90px;
+  height: 90px;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease; /*mini animación*/
+}
+.referencias a:hover { 
+  color: #74c0fc; 
+  transform: scale(1.05);
+}
+.referencias img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Estilos enlace al formulario de valoración */
+#formulario {
+  color: #669dd5;
+}
+#formulario:visited {
+  color: #180136;
+}
+#formulario:hover {
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
+}
+#formulario:active {
+  color: #00ff88;
+  text-shadow: 0 0 6px #00ff88;
+}
+
+/* Responsive (añadido posteriormente)
+Ajustes para móviles y tablets pequeñas */
+@media (max-width: 779px) {
+  /* El contenedor pasa a ser fluido */
+  .contenedor {
+    width: 95%;
+    padding: 10px;
+  }
+
+  /* El índice vertical para móvil */
+  .indice li { 
+    display: block;
+    margin: 6px 0;
+  }
+
+  /* Imágenes sin floats en móvil */
+  .derecha, .izquierda {
+    float: none;
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* Aside ocupa toda la pantalla */
+  aside.aside {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  /* Tabla scrolleable si es demasiado ancha */
+  .aside table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Iconos de referencias se adaptan mejor */
+  .referencias a {
+    width: auto;
+    margin: 5px 8px;
+  }
+  .referencias img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Pantallas grandes com mejor centrado */
+@media (min-width: 1200px) {
+  .contenedor {
+    max-width: 1100px;
+  }
+  aside.aside {
+    max-width: 1100px;
+  }
+}
+
+/* Accesibilidad mejorada */
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2px solid #74c0fc;
+  outline-offset: 2px;
+}
