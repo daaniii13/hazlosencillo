@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de valoración</title>
+    <!-- Estilos del formulario -->
+    <link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+    <h1>¡Valóranos!</h1>
+    <!-- Formulario principal -->
+    <form action="./php/proces_basico.php" method="post" autocomplete="on">
+    <!--Enviar el nombre del cliente que está dejando la valoración (obligatorio),
+    además debe cumplir con patrones que eviten usar caracteres fuera de lo habitual-->
+    <p> Aviso: Los campos con * son <b>OBLIGATORIOS</b> de rellenar.</p>
+    <label for="nombre">*Introduce tu nombre:</label>
+    <input 
+      type="text" 
+      name="nombre" 
+      id="nombre"
+      placeholder="Ejemplo: Pedro López"
+      pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,30}"
+      required 
+      autofocus>
+
+    <!--Enviar el número de teléfono de 9 cifras (opcional)-->
+    <label for="telefono">Introduce tu teléfono:</label>
+    <input 
+      type="tel"
+      name="telefono"
+      id="telefono"
+      placeholder="Ejemplo: 612345789"
+      pattern="[0-9]{9}" 
+      maxlength="9">
+
+    <!--Enviar la cantidad de estrellas, a través de un selector de rango, de manera obligatoria,
+    por defecto se envían 3 estrellas -->
+    <label for="estrellas">*Cantidad de estrellas:</label>
+    <pre>
+  1★         2★          3★          4★          5★
+    </pre>
+    <input
+      type="range" 
+      name="estrellas" 
+      id="estrellas"
+      min="1" 
+      max="5"
+      value="3"
+      required>
+
+    <!--Forma de encontrar la empresa, por defecto estará marcado "a través de Internet"-->
+    <label>*¿Cómo conociste nuestra empresa?</label> <br>
+    <label>
+        <input type="radio" name="tipoBusqueda" value="En Internet" checked> 
+        A través de Internet y/o búsquedas
+    </label><br>
+    <label>
+        <input type="radio" name="tipoBusqueda" value="Amigos o conocidos"> 
+        A través de amigos y/o conocidos
+    </label><br>
+    <label>
+        <input type="radio" name="tipoBusqueda" value="Redes Sociales o noticias"> 
+        Por otro medio (RRSS, noticias...)
+    </label> <br>
+
+    <!-- Área para dejar comentarios de manera opcional-->
+    <label for="comentario">Comentario:</label>
+    <textarea
+        name="comentario"
+        id="comentario"
+        rows="4"
+        placeholder="Escribe tu comentario..."></textarea>
+    <!--Enviar el formulario con la acción submit-->
+    <button type="submit">Enviar valoración</button>
+  </form>
+</body>
+</html>
